@@ -4,8 +4,6 @@ import 'package:flutter_kprac7/first.dart';
 import 'package:flutter_kprac7/second.dart';
 import 'package:flutter_kprac7/third.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -47,14 +45,17 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.amberAccent,
         title: Text(widget.title),
         actions: [
-            PopupMenuButton(
+          PopupMenuButton(
             icon: const Icon(Icons.info),
             itemBuilder: (context) => [
               PopupMenuItem(
                 onTap: () => {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Row(
-                      children: [Text('Всего на Земле 129864880 книг.'), Icon(Icons.fact_check, color: Colors.amber)],
+                      children: [
+                        Text('Всего на Земле 129864880 книг.'),
+                        Icon(Icons.fact_check, color: Colors.amber)
+                      ],
                     ),
                   ))
                 },
@@ -113,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.book), label: "Книги"),
-          BottomNavigationBarItem(icon: Icon(Icons.book_sharp), label: "Библиотека"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.book_sharp), label: "Библиотека"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Профиль"),
         ],
       ),
@@ -125,21 +127,24 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(Icons.book),
               title: const Text("Книги"),
               onTap: () {
-                
+                Navigator.pop(context);
+                _navigateTo(0);
               },
             ),
             ListTile(
               leading: const Icon(Icons.book_sharp),
               title: const Text("Библиотека"),
               onTap: () {
-                
+                Navigator.pop(context);
+                _navigateTo(1);
               },
             ),
             ListTile(
               leading: const Icon(Icons.person),
               title: const Text("Профиль"),
               onTap: () {
-                
+                Navigator.pop(context);
+                _navigateTo(2);
               },
             ),
           ],
